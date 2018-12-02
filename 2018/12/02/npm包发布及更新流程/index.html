@@ -14,10 +14,15 @@
 <meta property="og:site_name" content="Smileytear的博客">
 <meta property="og:description" content="一、安装nodejs这一步不多说 二、创建一个npm包1.创建一个npm项目(给包起名字前先去npm网站搜索下，看看名字有没有被占用)12345midir simple-npm-testcd simple-npm-testnpm init -y 2.编写发布的内容，在根目录下创建lib文件夹和index.js，进入lib文件夹新建hello.js和index.js，代码分别如下1234567891">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-02T14:32:29.834Z">
+<meta property="og:image" content="http://yoursite.com/2018/12/02/npm包发布及更新流程/npmlogin.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/02/npm包发布及更新流程/npmverty.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/02/npm包发布及更新流程/npmsuccess.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/02/npm包发布及更新流程/npmupdate.png">
+<meta property="og:updated_time" content="2018-12-02T14:35:24.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="npm包发布及更新流程">
 <meta name="twitter:description" content="一、安装nodejs这一步不多说 二、创建一个npm包1.创建一个npm项目(给包起名字前先去npm网站搜索下，看看名字有没有被占用)12345midir simple-npm-testcd simple-npm-testnpm init -y 2.编写发布的内容，在根目录下创建lib文件夹和index.js，进入lib文件夹新建hello.js和index.js，代码分别如下1234567891">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/02/npm包发布及更新流程/npmlogin.png">
   
     <link rel="alternate" href="/atom.xml" title="Smileytear的博客" type="application/atom+xml">
   
@@ -92,16 +97,16 @@
 <p>3.添加test模块,在根目录下新建文件夹test<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// test/test.js</span><br><span class="line">var hello = require(&apos;../&apos;)</span><br><span class="line"></span><br><span class="line">hello()</span><br><span class="line"></span><br><span class="line">// 同时将根目录下package.json文件的代码修改如下 </span><br><span class="line">// ...</span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  &quot;test&quot; : &quot;node test/test.js&quot;</span><br><span class="line">&#125;</span><br><span class="line">// ...</span><br></pre></td></tr></table></figure></p>
 <p>4.在根目录下运行<code>npm run test</code>,输出’hello world!’则代码运行正确</p>
 <p>此时文件目录如下所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">simple-npm-test</span><br><span class="line">|----index.js</span><br><span class="line">|----lib</span><br><span class="line">|     |---hello.js</span><br><span class="line">|     |---index.js</span><br><span class="line">|</span><br><span class="line">|----test</span><br><span class="line">      |---test.js</span><br></pre></td></tr></table></figure></p>
-<h4 id="三、发布一个npm包"><a href="#三、发布一个npm包" class="headerlink" title="三、发布一个npm包"></a>三、发布一个npm包</h4><p>1.申请一个npm账号，不多说<br>2.进入项目根目录，登录npm账号<br><br>3.发布npm包  <code>npm publish</code><br>如果有如下错误，是因为新申请的npm账号没有核实邮箱，打开你的注册邮箱，点开npm官方发给你的核实邮件，核实一下邮箱地址就好了<br>)<br>如果发布成功，则如下所示<br><br>进入npm个人中心，就可以看到自己发布的包了  </p>
+<h4 id="三、发布一个npm包"><a href="#三、发布一个npm包" class="headerlink" title="三、发布一个npm包"></a>三、发布一个npm包</h4><p>1.申请一个npm账号，不多说<br>2.进入项目根目录，登录npm账号<br><img src="/2018/12/02/npm包发布及更新流程/npmlogin.png"><br>3.发布npm包  <code>npm publish</code><br>如果有如下错误，是因为新申请的npm账号没有核实邮箱，打开你的注册邮箱，点开npm官方发给你的核实邮件，核实一下邮箱地址就好了<br><img src="/2018/12/02/npm包发布及更新流程/npmverty.png">)<br>如果发布成功，则如下所示<br><img src="/2018/12/02/npm包发布及更新流程/npmsuccess.png"><br>进入npm个人中心，就可以看到自己发布的包了  </p>
 <h4 id="四、使用npm包"><a href="#四、使用npm包" class="headerlink" title="四、使用npm包"></a>四、使用npm包</h4><pre><code>npm i &lt;package-name&gt;
 </code></pre><p>可以自己建一个项目，测试一下自己刚刚发布的包  </p>
-<h4 id="五、更新npm包"><a href="#五、更新npm包" class="headerlink" title="五、更新npm包"></a>五、更新npm包</h4><p>刚刚发布的包没有<code>Readme.md</code>,现在通过更新来添加<br>在根目录下新建<code>Readme.md</code>,内容参考大神发布的包的写法<br>更新npm包也是使用<code>npm publish</code>，要记得更改package.json里的版本号，不然会报错,更新成功后如下所示<br></p>
+<h4 id="五、更新npm包"><a href="#五、更新npm包" class="headerlink" title="五、更新npm包"></a>五、更新npm包</h4><p>刚刚发布的包没有<code>Readme.md</code>,现在通过更新来添加<br>在根目录下新建<code>Readme.md</code>,内容参考大神发布的包的写法<br>更新npm包也是使用<code>npm publish</code>，要记得更改package.json里的版本号，不然会报错,更新成功后如下所示<br><img src="/2018/12/02/npm包发布及更新流程/npmupdate.png"></p>
 <h4 id="六、其他"><a href="#六、其他" class="headerlink" title="六、其他"></a>六、其他</h4><p>发布一个基于ES6语法的npm包，下次再写</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/02/npm包发布及更新流程/" data-id="cjp6zka1300003oug8gp5ahk1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/02/npm包发布及更新流程/" data-id="cjp6zmzrl0000z0ugedjzj7fz" class="article-share-link">Share</a>
       
       
     </footer>
