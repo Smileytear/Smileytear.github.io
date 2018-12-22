@@ -317,6 +317,226 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/22/leetcode-20181222/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Smileytear">
+      <meta itemprop="description" content="追女孩又失败了，安心写代码吧-----2018.12.19">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Smileytear的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/12/22/leetcode-20181222/" class="post-title-link" itemprop="http://yoursite.com/index.html">leetcode-20181222</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-12-22 19:53:54 / Updated at: 19:54:31" itemprop="dateCreated datePublished" datetime="2018-12-22T19:53:54+08:00">2018-12-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode-study-everyday/" itemprop="url" rel="index"><span itemprop="name">leetcode study everyday</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, ad follows: “a” maps to “.-“, “b” maps to “-…”, “c” maps to “-.-.”, and so on.  </p>
+<p>For convenience, the full table for the 26 letters of the English alphabet is given below:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">".-"</span>,<span class="string">"-..."</span>,<span class="string">"-.-."</span>,<span class="string">"-.."</span>,<span class="string">"."</span>,<span class="string">"..-."</span>,<span class="string">"--."</span>,<span class="string">"...."</span>,<span class="string">".."</span>,<span class="string">".---"</span>,<span class="string">"-.-"</span>,<span class="string">".-.."</span>,<span class="string">"--"</span>,<span class="string">"-."</span>,<span class="string">"---"</span>,<span class="string">".--."</span>,<span class="string">"--.-"</span>,<span class="string">".-."</span>,<span class="string">"..."</span>,<span class="string">"-"</span>,<span class="string">"..-"</span>,<span class="string">"...-"</span>,<span class="string">".--"</span>,<span class="string">"-..-"</span>,<span class="string">"-.--"</span>,<span class="string">"--.."</span>]</span><br></pre></td></tr></table></figure>
+<p>Now, given a list of words, each word can be written as a concatenation of the Morse code of each letter. For example, “cba” can be written as “-.-..–…”, (which is the concatenation “-.-.” + “-…” + “.-“). We’ll call such a concatenation, the transformation of a word.</p>
+<p>Return the number of different transformation among all words we have.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Example:</span><br><span class="line">Input: words = [<span class="string">"gin"</span>,<span class="string">"zen"</span>,<span class="string">"gig"</span>,<span class="string">"msg"</span>]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation:</span><br><span class="line">The transformation of each word is:</span><br><span class="line"><span class="string">"gin"</span> -&gt; <span class="string">"--...-."</span></span><br><span class="line"><span class="string">"zen"</span> -&gt; <span class="string">"--...-."</span></span><br><span class="line"><span class="string">"gin"</span> -&gt; <span class="string">"--...--."</span></span><br><span class="line"><span class="string">"msg"</span> -&gt; <span class="string">"--...--."</span></span><br><span class="line">There are 2 different transformations, <span class="string">"--...-."</span> and <span class="string">"--...--."</span></span><br></pre></td></tr></table></figure>
+<p><strong>Note:</strong></p>
+<ul>
+<li>The length of words will be at most 100.</li>
+<li>Each words[i] will have length in range [1,12].</li>
+<li>words[i] will only consist of lowercase letters.  </li>
+</ul>
+<p><strong>Solution 1:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">var uniqueMorseRepresentations = <span class="keyword">function</span>(words) &#123;</span><br><span class="line">    <span class="built_in">let</span> morseObj = &#123;a:<span class="string">".-"</span>,</span><br><span class="line">                    b:<span class="string">"-..."</span>,</span><br><span class="line">                    c:<span class="string">"-.-."</span>,</span><br><span class="line">                    d:<span class="string">"-.."</span>,</span><br><span class="line">                    e:<span class="string">"."</span>,</span><br><span class="line">                    f:<span class="string">"..-."</span>,</span><br><span class="line">                    g:<span class="string">"--."</span>,</span><br><span class="line">                    h:<span class="string">"...."</span>,</span><br><span class="line">                    i:<span class="string">".."</span>,</span><br><span class="line">                    j:<span class="string">".---"</span>,</span><br><span class="line">                    k:<span class="string">"-.-"</span>,</span><br><span class="line">                    l:<span class="string">".-.."</span>,</span><br><span class="line">                    m:<span class="string">"--"</span>,</span><br><span class="line">                    n:<span class="string">"-."</span>,</span><br><span class="line">                    o:<span class="string">"---"</span>,</span><br><span class="line">                    p:<span class="string">".--."</span>,</span><br><span class="line">                    q:<span class="string">"--.-"</span>,</span><br><span class="line">                    r:<span class="string">".-."</span>,</span><br><span class="line">                    s:<span class="string">"..."</span>,</span><br><span class="line">                    t:<span class="string">"-"</span>,</span><br><span class="line">                    u:<span class="string">"..-"</span>,</span><br><span class="line">                    v:<span class="string">"...-"</span>,</span><br><span class="line">                    w:<span class="string">".--"</span>,</span><br><span class="line">                    x:<span class="string">"-..-"</span>,</span><br><span class="line">                    y:<span class="string">"-.--"</span>,</span><br><span class="line">                    z:<span class="string">"--.."</span>&#125;</span><br><span class="line">    <span class="built_in">let</span> obj = &#123;&#125;</span><br><span class="line">    <span class="built_in">let</span> count = 0</span><br><span class="line">    <span class="built_in">let</span> newWords = words.map((item)=&gt;&#123;</span><br><span class="line">        <span class="built_in">return</span> item = item.split(<span class="string">''</span>).map((char) =&gt; &#123;</span><br><span class="line">           <span class="built_in">return</span> char = morseObj[char]</span><br><span class="line">        &#125;).join(<span class="string">""</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">let</span> i=0;i&lt;newWords.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!obj[newWords[i]])&#123;</span><br><span class="line">            obj[newWords[i]] = 1</span><br><span class="line">            count++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> count</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>Solution 2:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var uniqueMorseRepresentations = <span class="keyword">function</span>(words) &#123;</span><br><span class="line">   	<span class="built_in">let</span> codes = [<span class="string">".-"</span>,<span class="string">"-..."</span>,<span class="string">"-.-."</span>,<span class="string">"-.."</span>,<span class="string">"."</span>,<span class="string">"..-."</span>,<span class="string">"--."</span>,<span class="string">"...."</span>,<span class="string">".."</span>,<span class="string">".---"</span>,<span class="string">"-.-"</span>,<span class="string">".-.."</span>,<span class="string">"--"</span>,<span class="string">"-."</span>,<span class="string">"---"</span>,<span class="string">".--."</span>,<span class="string">"--.-"</span>,<span class="string">".-."</span>,<span class="string">"..."</span>,<span class="string">"-"</span>,<span class="string">"..-"</span>,<span class="string">"...-"</span>,<span class="string">".--"</span>,<span class="string">"-..-"</span>,<span class="string">"-.--"</span>,<span class="string">"--.."</span>]</span><br><span class="line">   	<span class="built_in">let</span> getIndex = char =&gt; char.charCodeAt(0) - <span class="string">'a'</span>.charCodeAt(0)</span><br><span class="line">   	<span class="built_in">return</span> words.map(word =&gt; word.split(<span class="string">""</span>)</span><br><span class="line">   						.map(char =&gt; char = codes[getIndex(char)])</span><br><span class="line">   						.join(<span class="string">""</span>))</span><br><span class="line">   						.reduce((<span class="built_in">set</span>,cur) =&gt; set.add(cur), new Set())</span><br><span class="line">   						.size</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Solution 2 方法中ES6语法简单说明:  </p>
+<ol>
+<li>reduce()</li>
+</ol>
+<p>接受一个函数作为累加器，数组中的每个值从左到右开始缩减，最终计算为一个值</p>
+<p><code>array.reduce(function(total, currentValue, currentIndex, arr), initialValue)</code></p>
+<blockquote>
+<p>total: 必须，初始值</p>
+<p>currentValue: 必须，当前值</p>
+<p>initialValue: 可选，传递给函数的初始值</p>
+</blockquote>
+<ol start="2">
+<li><p>Set 数据结构  </p>
+<p>ES6 提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。</p>
+<p>Set本身是一个构造函数(并不是数组)，用来生成Set数据结构。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const s = new Set();</span><br><span class="line"></span><br><span class="line">[2,3,4,5,3,2,2].forEach(x =&gt; s.add(x))</span><br><span class="line"></span><br><span class="line">console.log(s)</span><br><span class="line">// Set(4) &#123;2, 3, 4, 5&#125;</span><br></pre></td></tr></table></figure>
+<p>Set 结构的实例有以下属性：</p>
+<ul>
+<li>Set.prototype.constructor: 构造函数，默认就是Set函数。</li>
+<li>Set.prototype.size: 返回Set实例的成员总数   </li>
+</ul>
+<p>Set 实例的方法(部分)：</p>
+<ul>
+<li><p>add(value): 添加某个值，返回Set结构本身。</p>
+</li>
+<li><p>delete(value): 删除某个值，返回一个布尔值，表示删除是否成功。</p>
+</li>
+<li><p>has(value): 返回一个布尔值，表示该值是否为Set的成员。</p>
+</li>
+<li><p>clear(): 清除所有成员，没有返回值。</p>
+</li>
+<li><p>keys(): 返回键名的遍历器</p>
+</li>
+<li><p>values(): 返回键值的遍历器</p>
+</li>
+<li><p>entries(): 返回键值对的遍历器</p>
+<blockquote>
+<p>Set的遍历顺序就是插入顺序，比如，使用Set保存一个回调函数表，调用时就能保证按照添加顺序调用</p>
+<p>keys方法、values方法、entries方法返回的都是遍历器对象，由于Set结构没有键名，只有键值，所以Keys方法和values方法的行为完全一致, entries方法返回的遍历器，同时包括键名和键值,所以每次输出一个数组，它的两个成员完全相等。</p>
+</blockquote>
+</li>
+<li>forEach(): 使用回调函数遍历每个成员</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/19/leetcode-20181219/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -362,7 +582,7 @@
                 
               
 
-              <time title="Post created: 2018-12-19 20:16:04 / Updated at: 21:15:50" itemprop="dateCreated datePublished" datetime="2018-12-19T20:16:04+08:00">2018-12-19</time>
+              <time title="Post created: 2018-12-19 20:16:04 / Updated at: 21:19:24" itemprop="dateCreated datePublished" datetime="2018-12-19T20:16:04+08:00">2018-12-19</time>
             
 
             
@@ -1028,7 +1248,7 @@ Output: False
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
