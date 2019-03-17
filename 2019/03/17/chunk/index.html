@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="_.chunk(array, [size = 1])将数组拆分成指定长度的几个小数组，如果不能平均拆分，那么最后的小数组为剩下的元素 Argumentsarray(Array):The array to process [size=1](number):The length of each chunk Returns(Array):Returns the new array of chunks E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="_.chunk">
+<meta property="og:url" content="http://yoursite.com/2019/03/17/chunk/index.html">
+<meta property="og:site_name" content="Smileytear的博客">
+<meta property="og:description" content="_.chunk(array, [size = 1])将数组拆分成指定长度的几个小数组，如果不能平均拆分，那么最后的小数组为剩下的元素 Argumentsarray(Array):The array to process [size=1](number):The length of each chunk Returns(Array):Returns the new array of chunks E">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-17T13:53:10.841Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="_.chunk">
+<meta name="twitter:description" content="_.chunk(array, [size = 1])将数组拆分成指定长度的几个小数组，如果不能平均拆分，那么最后的小数组为剩下的元素 Argumentsarray(Array):The array to process [size=1](number):The length of each chunk Returns(Array):Returns the new array of chunks E">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/17/chunk/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>_.chunk | Smileytear的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Smileytear的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/chunk/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Smileytear">
+      <meta itemprop="description" content="No matter what harvest is done">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Smileytear的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">_.chunk
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-17 18:46:45 / Modified: 21:53:10" itemprop="dateCreated datePublished" datetime="2019-03-17T18:46:45+08:00">2019-03-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/lodash/" itemprop="url" rel="index"><span itemprop="name">lodash</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="chunk-array-size-1"><a href="#chunk-array-size-1" class="headerlink" title="_.chunk(array, [size = 1])"></a>_.chunk(array, [size = 1])</h4><p>将数组拆分成指定长度的几个小数组，如果不能平均拆分，那么最后的小数组为剩下的元素</p>
+<h5 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h5><pre><code>array(Array):The array to process
+[size=1](number):The length of each chunk
+</code></pre><h5 id="Returns"><a href="#Returns" class="headerlink" title="Returns"></a>Returns</h5><pre><code>(Array):Returns the new array of chunks
+</code></pre><h5 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">_.chunk([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;], 2);</span><br><span class="line">// =&gt; [[&apos;a&apos;,&apos;b&apos;],[&apos;c&apos;,&apos;d&apos;]]</span><br><span class="line"></span><br><span class="line">_.chunk([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;], 3);</span><br><span class="line">// =&gt; [[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;],[&apos;d&apos;]]</span><br></pre></td></tr></table></figure>
+<h5 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h5><p>知识点</p>
+<p>关于  &gt;&gt;&gt; 操作符，参考<a href="https://segmentfault.com/a/1190000014613703" target="_blank" rel="noopener">https://segmentfault.com/a/1190000014613703</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">// chunk.js</span><br><span class="line"></span><br><span class="line">// 重新定义的slice方法，下面有介绍，使用方法为slice(array,start,end),该函数返回值为新的数组</span><br><span class="line">import slice from &apos;./slice.js&apos;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Creates an array of elements split into groups the length of `size`.</span><br><span class="line"> * If `array` can&apos;t be split evenly, the final chunk will be the remaining</span><br><span class="line"> * elements.</span><br><span class="line"> *</span><br><span class="line"> * @since 3.0.0</span><br><span class="line"> * @category Array</span><br><span class="line"> * @param &#123;Array&#125; array The array to process.</span><br><span class="line"> * @param &#123;number&#125; [size=1] The length of each chunk</span><br><span class="line"> * @returns &#123;Array&#125; Returns the new array of chunks.</span><br><span class="line"> * @example</span><br><span class="line"> *</span><br><span class="line"> * chunk([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;], 2)</span><br><span class="line"> * // =&gt; [[&apos;a&apos;, &apos;b&apos;], [&apos;c&apos;, &apos;d&apos;]]</span><br><span class="line"> *</span><br><span class="line"> * chunk([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;], 3)</span><br><span class="line"> * // =&gt; [[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;], [&apos;d&apos;]]</span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line">function chunk(array, size) &#123;</span><br><span class="line">  size = Math.max(size, 0)   // 拆分的每个小数组的长度</span><br><span class="line">  const length = array == null ? 0 : array.length  // 被拆分的数组的总长度</span><br><span class="line">  if (!length || size &lt; 1) &#123;</span><br><span class="line">    return []</span><br><span class="line">  &#125;</span><br><span class="line">  let index = 0</span><br><span class="line">  let resIndex = 0</span><br><span class="line">  // 向上取整，得到拆分的小数组的个总数</span><br><span class="line">  const result = new Array(Math.ceil(length / size))</span><br><span class="line"></span><br><span class="line">  while (index &lt; length) &#123;</span><br><span class="line">    result[resIndex++] = slice(array, index, (index += size))</span><br><span class="line">  &#125;</span><br><span class="line">  return result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default chunk</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">// slice.js</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Creates a slice of `array` from `start` up to, but not including, `end`.</span><br><span class="line"> *</span><br><span class="line"> * **Note:** This method is used instead of</span><br><span class="line"> * [`Array#slice`](https://mdn.io/Array/slice) to ensure dense arrays are</span><br><span class="line"> * returned.</span><br><span class="line"> *</span><br><span class="line"> * @since 3.0.0</span><br><span class="line"> * @category Array</span><br><span class="line"> * @param &#123;Array&#125; array The array to slice.</span><br><span class="line"> * @param &#123;number&#125; [start=0] The start position. A negative index will be treated as an offset from the end.</span><br><span class="line"> * @param &#123;number&#125; [end=array.length] The end position. A negative index will be treated as an offset from the end.</span><br><span class="line"> * @returns &#123;Array&#125; Returns the slice of `array`.</span><br><span class="line"> * @example</span><br><span class="line"> *</span><br><span class="line"> * var array = [1, 2, 3, 4]</span><br><span class="line"> *</span><br><span class="line"> * _.slice(array, 2)</span><br><span class="line"> * // =&gt; [3, 4]</span><br><span class="line"> */</span><br><span class="line">function slice(array, start, end) &#123;</span><br><span class="line">  // 判断参数一是否为null</span><br><span class="line">  let length = array == null ? 0 : array.length</span><br><span class="line">  // 如果长度不存在，返回[]</span><br><span class="line">  if (!length) &#123;</span><br><span class="line">    return []</span><br><span class="line">  &#125;</span><br><span class="line">  // 如果未传入start，则start=0</span><br><span class="line">  start = start == null ? 0 : start</span><br><span class="line">  // 如果未传入end，则end为数组长度</span><br><span class="line">  end = end === undefined ? length : end</span><br><span class="line"></span><br><span class="line">  if (start &lt; 0) &#123;</span><br><span class="line">    // 如果-start &gt; length，那么start = 0, 反之start = length + start, 该处处理方法和Array的     // 原生slice方法逻辑相同</span><br><span class="line">    start = -start &gt; length ? 0 : (length + start)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  // 如果end &gt; length, 则end = length</span><br><span class="line">  end = end &gt; length ? length : end</span><br><span class="line">  if (end &lt; 0) &#123;</span><br><span class="line">    end += length</span><br><span class="line">  &#125;</span><br><span class="line">  // start &gt; end 是否成立，若length &gt; end, 则length = 0， 否则 length = end - start</span><br><span class="line">  length = start &gt; end ? 0 : ((end - start) &gt;&gt;&gt; 0)</span><br><span class="line">  // start &gt;&gt;&gt;= 0 即 start = start &gt;&gt;&gt; 0</span><br><span class="line">  start &gt;&gt;&gt;= 0</span><br><span class="line"></span><br><span class="line">  let index = -1</span><br><span class="line">  const result = new Array(length)</span><br><span class="line">  // 从start下标开始，将array[start + index] 赋于 result[index]</span><br><span class="line">  while (++index &lt; length) &#123;</span><br><span class="line">    result[index] = array[index + start]</span><br><span class="line">  &#125;</span><br><span class="line">  return result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default slice</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/22/leetcode-20181222/" rel="next" title="Unique Morse Code Words">
+                <i class="fa fa-chevron-left"></i> Unique Morse Code Words
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Smileytear</p>
+              <p class="site-description motion-element" itemprop="description">No matter what harvest is done</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#chunk-array-size-1"><span class="nav-number">1.</span> <span class="nav-text">_.chunk(array, [size = 1])</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Arguments"><span class="nav-number">1.1.</span> <span class="nav-text">Arguments</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Returns"><span class="nav-number">1.2.</span> <span class="nav-text">Returns</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Examples"><span class="nav-number">1.3.</span> <span class="nav-text">Examples</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#源码解析"><span class="nav-number">1.4.</span> <span class="nav-text">源码解析</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Smileytear</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.6.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -108,16 +108,16 @@
 
 
 
-  <meta name="description" content="追女孩又失败了，安心写代码吧-----2018.12.19">
+  <meta name="description" content="No matter what harvest is done">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Smileytear的博客">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Smileytear的博客">
-<meta property="og:description" content="追女孩又失败了，安心写代码吧-----2018.12.19">
+<meta property="og:description" content="No matter what harvest is done">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Smileytear的博客">
-<meta name="twitter:description" content="追女孩又失败了，安心写代码吧-----2018.12.19">
+<meta name="twitter:description" content="No matter what harvest is done">
 
 
 
@@ -231,7 +231,7 @@
 
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
 
   </li>
         
@@ -248,7 +248,7 @@
 
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
 
   </li>
         
@@ -265,7 +265,7 @@
 
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
 
   </li>
 
@@ -317,11 +317,179 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/chunk/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Smileytear">
+      <meta itemprop="description" content="No matter what harvest is done">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Smileytear的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/17/chunk/" class="post-title-link" itemprop="http://yoursite.com/index.html">_.chunk</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-17 18:46:45 / Modified: 21:53:10" itemprop="dateCreated datePublished" datetime="2019-03-17T18:46:45+08:00">2019-03-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/lodash/" itemprop="url" rel="index"><span itemprop="name">lodash</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="chunk-array-size-1"><a href="#chunk-array-size-1" class="headerlink" title="_.chunk(array, [size = 1])"></a>_.chunk(array, [size = 1])</h4><p>将数组拆分成指定长度的几个小数组，如果不能平均拆分，那么最后的小数组为剩下的元素</p>
+<h5 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h5><pre><code>array(Array):The array to process
+[size=1](number):The length of each chunk
+</code></pre><h5 id="Returns"><a href="#Returns" class="headerlink" title="Returns"></a>Returns</h5><pre><code>(Array):Returns the new array of chunks
+</code></pre><h5 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">_.chunk([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;], 2);</span><br><span class="line">// =&gt; [[&apos;a&apos;,&apos;b&apos;],[&apos;c&apos;,&apos;d&apos;]]</span><br><span class="line"></span><br><span class="line">_.chunk([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;], 3);</span><br><span class="line">// =&gt; [[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;],[&apos;d&apos;]]</span><br></pre></td></tr></table></figure>
+<h5 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h5><p>知识点</p>
+<p>关于  &gt;&gt;&gt; 操作符，参考<a href="https://segmentfault.com/a/1190000014613703" target="_blank" rel="noopener">https://segmentfault.com/a/1190000014613703</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">// chunk.js</span><br><span class="line"></span><br><span class="line">// 重新定义的slice方法，下面有介绍，使用方法为slice(array,start,end),该函数返回值为新的数组</span><br><span class="line">import slice from &apos;./slice.js&apos;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Creates an array of elements split into groups the length of `size`.</span><br><span class="line"> * If `array` can&apos;t be split evenly, the final chunk will be the remaining</span><br><span class="line"> * elements.</span><br><span class="line"> *</span><br><span class="line"> * @since 3.0.0</span><br><span class="line"> * @category Array</span><br><span class="line"> * @param &#123;Array&#125; array The array to process.</span><br><span class="line"> * @param &#123;number&#125; [size=1] The length of each chunk</span><br><span class="line"> * @returns &#123;Array&#125; Returns the new array of chunks.</span><br><span class="line"> * @example</span><br><span class="line"> *</span><br><span class="line"> * chunk([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;], 2)</span><br><span class="line"> * // =&gt; [[&apos;a&apos;, &apos;b&apos;], [&apos;c&apos;, &apos;d&apos;]]</span><br><span class="line"> *</span><br><span class="line"> * chunk([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;], 3)</span><br><span class="line"> * // =&gt; [[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;], [&apos;d&apos;]]</span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line">function chunk(array, size) &#123;</span><br><span class="line">  size = Math.max(size, 0)   // 拆分的每个小数组的长度</span><br><span class="line">  const length = array == null ? 0 : array.length  // 被拆分的数组的总长度</span><br><span class="line">  if (!length || size &lt; 1) &#123;</span><br><span class="line">    return []</span><br><span class="line">  &#125;</span><br><span class="line">  let index = 0</span><br><span class="line">  let resIndex = 0</span><br><span class="line">  // 向上取整，得到拆分的小数组的个总数</span><br><span class="line">  const result = new Array(Math.ceil(length / size))</span><br><span class="line"></span><br><span class="line">  while (index &lt; length) &#123;</span><br><span class="line">    result[resIndex++] = slice(array, index, (index += size))</span><br><span class="line">  &#125;</span><br><span class="line">  return result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default chunk</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">// slice.js</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Creates a slice of `array` from `start` up to, but not including, `end`.</span><br><span class="line"> *</span><br><span class="line"> * **Note:** This method is used instead of</span><br><span class="line"> * [`Array#slice`](https://mdn.io/Array/slice) to ensure dense arrays are</span><br><span class="line"> * returned.</span><br><span class="line"> *</span><br><span class="line"> * @since 3.0.0</span><br><span class="line"> * @category Array</span><br><span class="line"> * @param &#123;Array&#125; array The array to slice.</span><br><span class="line"> * @param &#123;number&#125; [start=0] The start position. A negative index will be treated as an offset from the end.</span><br><span class="line"> * @param &#123;number&#125; [end=array.length] The end position. A negative index will be treated as an offset from the end.</span><br><span class="line"> * @returns &#123;Array&#125; Returns the slice of `array`.</span><br><span class="line"> * @example</span><br><span class="line"> *</span><br><span class="line"> * var array = [1, 2, 3, 4]</span><br><span class="line"> *</span><br><span class="line"> * _.slice(array, 2)</span><br><span class="line"> * // =&gt; [3, 4]</span><br><span class="line"> */</span><br><span class="line">function slice(array, start, end) &#123;</span><br><span class="line">  // 判断参数一是否为null</span><br><span class="line">  let length = array == null ? 0 : array.length</span><br><span class="line">  // 如果长度不存在，返回[]</span><br><span class="line">  if (!length) &#123;</span><br><span class="line">    return []</span><br><span class="line">  &#125;</span><br><span class="line">  // 如果未传入start，则start=0</span><br><span class="line">  start = start == null ? 0 : start</span><br><span class="line">  // 如果未传入end，则end为数组长度</span><br><span class="line">  end = end === undefined ? length : end</span><br><span class="line"></span><br><span class="line">  if (start &lt; 0) &#123;</span><br><span class="line">    // 如果-start &gt; length，那么start = 0, 反之start = length + start, 该处处理方法和Array的     // 原生slice方法逻辑相同</span><br><span class="line">    start = -start &gt; length ? 0 : (length + start)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  // 如果end &gt; length, 则end = length</span><br><span class="line">  end = end &gt; length ? length : end</span><br><span class="line">  if (end &lt; 0) &#123;</span><br><span class="line">    end += length</span><br><span class="line">  &#125;</span><br><span class="line">  // start &gt; end 是否成立，若length &gt; end, 则length = 0， 否则 length = end - start</span><br><span class="line">  length = start &gt; end ? 0 : ((end - start) &gt;&gt;&gt; 0)</span><br><span class="line">  // start &gt;&gt;&gt;= 0 即 start = start &gt;&gt;&gt; 0</span><br><span class="line">  start &gt;&gt;&gt;= 0</span><br><span class="line"></span><br><span class="line">  let index = -1</span><br><span class="line">  const result = new Array(length)</span><br><span class="line">  // 从start下标开始，将array[start + index] 赋于 result[index]</span><br><span class="line">  while (++index &lt; length) &#123;</span><br><span class="line">    result[index] = array[index + start]</span><br><span class="line">  &#125;</span><br><span class="line">  return result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default slice</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/22/leetcode-20181222/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Smileytear">
-      <meta itemprop="description" content="追女孩又失败了，安心写代码吧-----2018.12.19">
+      <meta itemprop="description" content="No matter what harvest is done">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -355,14 +523,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-12-22 19:53:54 / Updated at: 20:05:43" itemprop="dateCreated datePublished" datetime="2018-12-22T19:53:54+08:00">2018-12-22</time>
+              <time title="Created: 2018-12-22 19:53:54 / Modified: 20:05:43" itemprop="dateCreated datePublished" datetime="2018-12-22T19:53:54+08:00">2018-12-22</time>
             
 
             
@@ -381,7 +549,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode-study-everyday/" itemprop="url" rel="index"><span itemprop="name">leetcode study everyday</span></a></span>
@@ -540,7 +708,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Smileytear">
-      <meta itemprop="description" content="追女孩又失败了，安心写代码吧-----2018.12.19">
+      <meta itemprop="description" content="No matter what harvest is done">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -574,14 +742,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-12-19 20:16:04" itemprop="dateCreated datePublished" datetime="2018-12-19T20:16:04+08:00">2018-12-19</time>
+              <time title="Created: 2018-12-19 20:16:04" itemprop="dateCreated datePublished" datetime="2018-12-19T20:16:04+08:00">2018-12-19</time>
             
 
             
@@ -598,7 +766,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-12-22 19:58:30" itemprop="dateModified" datetime="2018-12-22T19:58:30+08:00">2018-12-22</time>
+                <time title="Modified: 2018-12-22 19:58:30" itemprop="dateModified" datetime="2018-12-22T19:58:30+08:00">2018-12-22</time>
               
             
           </span>
@@ -612,7 +780,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode-study-everyday/" itemprop="url" rel="index"><span itemprop="name">leetcode study everyday</span></a></span>
@@ -739,7 +907,7 @@ Output: False
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Smileytear">
-      <meta itemprop="description" content="追女孩又失败了，安心写代码吧-----2018.12.19">
+      <meta itemprop="description" content="No matter what harvest is done">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -773,14 +941,14 @@ Output: False
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-12-19 20:08:48 / Updated at: 20:15:32" itemprop="dateCreated datePublished" datetime="2018-12-19T20:08:48+08:00">2018-12-19</time>
+              <time title="Created: 2018-12-19 20:08:48 / Modified: 20:15:32" itemprop="dateCreated datePublished" datetime="2018-12-19T20:08:48+08:00">2018-12-19</time>
             
 
             
@@ -799,7 +967,7 @@ Output: False
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/regular-expression/" itemprop="url" rel="index"><span itemprop="name">regular expression</span></a></span>
@@ -1053,7 +1221,7 @@ Output: False
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Smileytear">
-      <meta itemprop="description" content="追女孩又失败了，安心写代码吧-----2018.12.19">
+      <meta itemprop="description" content="No matter what harvest is done">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -1087,14 +1255,14 @@ Output: False
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Post created: 2018-12-02 22:24:13" itemprop="dateCreated datePublished" datetime="2018-12-02T22:24:13+08:00">2018-12-02</time>
+              <time title="Created: 2018-12-02 22:24:13" itemprop="dateCreated datePublished" datetime="2018-12-02T22:24:13+08:00">2018-12-02</time>
             
 
             
@@ -1111,7 +1279,7 @@ Output: False
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-12-05 18:36:06" itemprop="dateModified" datetime="2018-12-05T18:36:06+08:00">2018-12-05</time>
+                <time title="Modified: 2018-12-05 18:36:06" itemprop="dateModified" datetime="2018-12-05T18:36:06+08:00">2018-12-05</time>
               
             
           </span>
@@ -1125,7 +1293,7 @@ Output: False
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/npm/" itemprop="url" rel="index"><span itemprop="name">npm</span></a></span>
@@ -1249,7 +1417,7 @@ Output: False
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Smileytear</p>
-              <p class="site-description motion-element" itemprop="description">追女孩又失败了，安心写代码吧-----2018.12.19</p>
+              <p class="site-description motion-element" itemprop="description">No matter what harvest is done</p>
           </div>
 
           
@@ -1259,8 +1427,8 @@ Output: False
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -1278,8 +1446,10 @@ Output: False
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">Kategorien</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -1319,7 +1489,7 @@ Output: False
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -1331,7 +1501,7 @@ Output: False
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
 
 
 
